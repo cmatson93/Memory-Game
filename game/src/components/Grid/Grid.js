@@ -7,18 +7,18 @@ class Grid extends Component {
         super(props);
         this.state = {
             boxes : [
-                {num: 1, clicked: false},
-                {num: 2, clicked: false},
-                {num: 3, clicked: false},
-                {num: 4, clicked: false},
-                {num: 5, clicked: false},
-                {num: 6, clicked: false},
-                {num: 7, clicked: false},
-                {num: 8, clicked: false},
-                {num: 9, clicked: false},
-                {num: 10, clicked: false},
-                {num: 11, clicked: false},
-                {num: 12, clicked: false},
+                {num: 1, clicked: false, url: '/Images/Chansey.png'},
+                {num: 2, clicked: false, url: '/Images/Charmander.png'},
+                {num: 3, clicked: false, url: '/Images/Eve.png'},
+                {num: 4, clicked: false, url: '/Images/Growlithe.png'},
+                {num: 5, clicked: false, url: '/Images/Jynx.png'},
+                {num: 6, clicked: false, url: '/Images/Mankey.png'},
+                {num: 7, clicked: false, url: '/Images/Meowith.png'},
+                {num: 8, clicked: false, url: '/Images/Pickachu.png'},
+                {num: 9, clicked: false, url: '/Images/Ponyta.png'},
+                {num: 10, clicked: false, url: '/Images/Psyduck.png'},
+                {num: 11, clicked: false, url: '/Images/Quilava.png'},
+                {num: 12, clicked: false, url: '/Images/Squirtle.png'},
             ],
             score: 0
         }
@@ -30,7 +30,7 @@ class Grid extends Component {
             if (box.num === id) {
                 if (box.clicked === false) {
                     box.clicked = true;
-                    this.state.score ++;
+                    this.setState({score : this.state.score + 1});
                 } else {
                     this.gameOver();
                 }
@@ -63,7 +63,7 @@ class Grid extends Component {
     render() {
         return (
             <div className="container">
-                <p>{this.state.score}</p>
+                {/* <p>{this.state.score}</p> */}
                 <div className="grid">
                     <Boxes boxes={this.state.boxes} onClick={(id) => this.shuffleBoxes(id)}/>
                 </div>
